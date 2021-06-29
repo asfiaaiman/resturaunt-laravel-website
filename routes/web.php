@@ -44,7 +44,7 @@ Route::prefix('foods')->group(function () {
     Route::post('/store', [FoodDetailController::class, 'store'])->name('foods.store');
     Route::get('/{id}/edit', [FoodDetailController::class, 'edit'])->name('foods.edit');
     Route::patch('{id}', [FoodDetailController::class, 'update'])->name('foods.update');
-    Route::post('/delete/{id}', [FoodDetailController::class, 'destroy'])->name('foods.destroy');
+    Route::get('{id}/delete', [FoodDetailController::class, 'destroy'])->name('foods.destroy');
     Route::post('/storeStatus', [FoodDetailController::class, 'storeStatus'])->name('foods.storeStatus');
 
 });

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\FoodDetail;
 
 class Foodtype extends Model
 {
@@ -11,6 +12,6 @@ class Foodtype extends Model
     protected $guarded = [];
     public function foods()
     {
-        return $this->hasMany('App\FoodDetail');
+        return $this->hasMany('App\Models\FoodDetail');
     }
 }

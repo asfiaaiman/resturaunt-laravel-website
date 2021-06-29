@@ -37,17 +37,17 @@ class FoodtypeController extends Controller
                 $action = '<span class="action_btn">';
                 //show
                     $action .= '<a href="'.url("/foodtypes/show/".$data->id).'" class="btn btn-primary" title="View Detail"><i class="fa fa-eye"></i> </a>';
-               
+
                 //edit
-                
+
                     $action .= '<a href="'.url("/foodtypes/".$data->id."/edit").'" class="btn btn-success" title="Edit"><i class="fa fa-edit"></i> </a>';
-                
+
                 //delete
-                
+
                     $action .= '<a href="'.url("/foodtypes/".$data->id."/delete").'" class="btn btn-danger btnDelete"><i class="fa fa-trash"></i></a>';
-                               
+
                     $action .= '&nbsp;&nbsp;';
-                
+
 
                 $action .= '</span>';
                 return $action;
@@ -57,28 +57,29 @@ class FoodtypeController extends Controller
             ->make(true);
     }
         return view('admin.foodtype.foodtype');
-    } 
+    }
 
     public function create() {
-        $foodtypes = Foodtype::where('status', 1)->get();
-        return view('admin.foodtype.create')->with('foodtypes', $foodtypes);
+        return view('admin.foodtype.create');
     }
-    
+
     public function store(Request $request)
-{ 
+{
     $this->validate(request(), [
-        'name' => 'required'
+        'name' => 'required' ,
+        'slug' => 'required'
     ]);
 
     $foodtype_id = $request->id;
-     
-    $foodtype   =   new Foodtype();  
+
+    $foodtype   =   new Foodtype();
     $foodtype->name = $request->name;
+    $foodtype->slug = $request->slug;
     $foodtype->save();
-           
+
      return redirect('/foodtypes')->with('success', 'Food Category has been added successfully.');
 
-} 
+}
 
 public function show($id) {
     $foodtype = Foodtype::where('id',$id)->first();
@@ -86,10 +87,10 @@ public function show($id) {
 }
 
 public function edit($id)
-{   
+{
     $where = array('id' => $id);
     $foodtype  = Foodtype::where($where)->first();
-  
+
     return view('admin.foodtype.edit')->with(['foodtype' => $foodtype]);
 }
 
@@ -100,7 +101,7 @@ public function update(Request $request, $id)
         $this->validate(request(), [
             'name' => 'required',
         ]);
-        
+
         $foodtype=  Foodtype::where('id',$id)->first();
         $foodtype->name=$request->get('name');
         $foodtype->updated_at = date('Y-m-d H:i:s');

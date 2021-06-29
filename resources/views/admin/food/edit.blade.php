@@ -84,7 +84,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  
+
   -ms-transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
@@ -111,7 +111,7 @@
   -webkit-perspective: inherit;
   perspective: inherit;
   z-index: 2;
-  
+
   transform: translateY(-50%) translateZ(60px) scale(.94);
   -webkit-transform: translateY(-50%) translateZ(60px) scale(.94);
   -ms-transform: translateY(-50%) translateZ(60px) scale(.94);
@@ -145,7 +145,7 @@
 }
 </style>
 @section('content')
-   
+
 <div class="box-container">
 	<div class="box-item">
     <div class="flip-box">
@@ -159,11 +159,14 @@
       <div class="flip-box-back text-center">
         <div class="inner color-white">
           <h3 class="flip-box-header text-dark">Edit the Name of Food</h3>
-          <form action="{{ route('foods.update', [$food->id]) }}" method="post">
+          <form action="{{ route('foods.update', [$food->id]) }}" method="post" enctype="multipart/form-data">
               @csrf
               <input name="_method" type="hidden" value="PATCH">
               <div class="form-group">
                   <input type="text" name="name" id="name" class="form-control text-black" value="{{$food->name}}"  required placeholder="Name of the Food">
+              </div>
+              <div class="form-group">
+                  <input type="text" name="slug" id="slug" class="form-control text-black" value="{{$food->slug}}"  required placeholder="Slug of the Food">
               </div>
               <div class="form-group">
                   <input type="number" name="price" id="price" class="form-control text-black" value="{{$food->price}}"  required placeholder="Price of the Food">
@@ -182,7 +185,7 @@
               <button type="submit" class="btn btn-primary pull-center">Save</button>
               </div>
           </form>
-          
+
         </div>
       </div>
     </div>
