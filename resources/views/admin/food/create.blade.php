@@ -145,51 +145,39 @@
     }
 </style>
 @section('content')
-
-    <div class="box-container">
-        <div class="box-item">
-            <div class="flip-box">
-                <div class="flip-box-front text-center">
-                    <div class="inner color-white">
-                        <h3 class="flip-box-header">Create Food Details</h3>
-                        <p>It is important to create the details of the food</p>
-                        <img src="https://s25.postimg.cc/65hsttv9b/cta-arrow.png" alt="" class="flip-box-img">
-                    </div>
-                </div>
-                <div class="flip-box-back text-center">
-                    <div class="inner color-white">
-                        <h3 class="flip-box-header text-dark">Create the Name of Food</h3>
-                        <form action="{{route('foods.store')}}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <div class="form-group">
-                            <input type="text" name="name" id="name" class="form-control" required placeholder="Name of the Food">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="slug" id="slug" class="form-control" required placeholder="Slug of the Food">
-                        </div>
-                        <div class="form-group">
-                            <input type="number" name="price" id="price" class="form-control" required placeholder="Price of the Food">
-                        </div>
-                        <div class="form-group">
-                            <select name="foodtype_id" id="foodtype_id" class="form-control">
-                                @if($foodtypes)
-                                @foreach($foodtypes as $foodtype)
-                                    <option value="{{$foodtype->id}}">{{$foodtype->name}}</option>
-                                @endforeach
-                                @endif
-                            </select>
-                        </div>
-                        <div>
-                            <input type="file" id="image" name="image" class="form-control">
-                        </div>
-                        <div>
-                            <a href="{{route('foodtypes')}}" class="btn btn-default pull-center">Cancel</a>
-                            <button type="submit" class="btn btn-primary pull-center">Save</button>
-                        </div>
-                    </form>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-12">
+               <form action="{{route('foods.store')}}" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="form-group">
+            <input type="text" name="name" id="name" class="form-control" required placeholder="Name of the Food">
+        </div>
+        <div class="form-group">
+            <input type="text" name="slug" id="slug" class="form-control" required placeholder="Slug of the Food">
+        </div>
+        <div class="form-group">
+            <input type="number" name="price" id="price" class="form-control" required placeholder="Price of the Food">
+        </div>
+        <div class="form-group">
+            <select name="foodtype_id" id="foodtype_id" class="form-control">
+                @if($foodtypes)
+                    @foreach($foodtypes as $foodtype)
+                        <option value="{{$foodtype->id}}">{{$foodtype->name}}</option>
+                    @endforeach
+                @endif
+            </select>
+        </div>
+        <div>
+            <input type="file" id="image" name="image" class="form-control">
+        </div>
+        <div>
+            <a href="{{route('foodtypes')}}" class="btn btn-default pull-center">Cancel</a>
+            <button type="submit" class="btn btn-primary pull-center">Save</button>
+        </div>
+    </form>
             </div>
         </div>
     </div>
+
 @endsection

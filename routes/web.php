@@ -20,6 +20,7 @@ use App\Models\Foodtype;
 
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::post('/home', [HomeController::class, 'messages_store'])->name('home.store');
 
 Route::get('/', function () {
     return view('layouts.admin.main');

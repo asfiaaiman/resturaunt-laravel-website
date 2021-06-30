@@ -6,7 +6,6 @@
     @include('home_components.menu')
     @include('home_components.specials')
     @include('home_components.events')
-    @include('home_components.testimonials')
     @include('home_components.contact')
 
 </main>

@@ -11,7 +11,7 @@
 
           <div class="row event-item">
             <div class="col-lg-6">
-              <img src="assets/img/event-birthday.jpg" class="img-fluid" alt="">
+              <img src="{{asset('website-assets/assets/img/event-birthday.jpg')}}" class="img-fluid" alt="">
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0 content">
               <h3>Birthday Parties</h3>
@@ -36,7 +36,7 @@
 
           <div class="row event-item">
             <div class="col-lg-6">
-              <img src="assets/img/event-private.jpg" class="img-fluid" alt="">
+              <img src="{{asset('website-assets/assets/img/event-private.jpg')}}" class="img-fluid" alt="">
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0 content">
               <h3>Private Parties</h3>
@@ -61,7 +61,7 @@
 
           <div class="row event-item">
             <div class="col-lg-6">
-              <img src="assets/img/event-custom.jpg" class="img-fluid" alt="">
+              <img src="{{asset('website-assets/assets/img/event-custom.jpg')}}" class="img-fluid" alt="">
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0 content">
               <h3>Custom Parties</h3>
