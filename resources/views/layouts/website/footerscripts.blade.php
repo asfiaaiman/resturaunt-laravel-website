@@ -11,3 +11,4 @@
 <script src="{{asset('website-assets/assets/vendor/aos/aos.js') }}"></script>
 <!-- Template Main JS File -->
 <script src="{{asset('website-assets/assets/js/main.js') }}"></script>
+@livewireScripts

@@ -84,7 +84,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  
+
   -ms-transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
@@ -111,7 +111,7 @@
   -webkit-perspective: inherit;
   perspective: inherit;
   z-index: 2;
-  
+
   transform: translateY(-50%) translateZ(60px) scale(.94);
   -webkit-transform: translateY(-50%) translateZ(60px) scale(.94);
   -ms-transform: translateY(-50%) translateZ(60px) scale(.94);
@@ -145,7 +145,7 @@
 }
 </style>
 @section('content')
-   
+
 <div class="box-container">
 	<div class="box-item">
     <div class="flip-box">
@@ -170,7 +170,7 @@
               <button type="submit" class="btn btn-primary pull-center">Save</button>
               </div>
           </form>
-          
+
         </div>
       </div>
     </div>

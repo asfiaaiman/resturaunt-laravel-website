@@ -7,7 +7,7 @@
          <h2>Delivering great food for more than 18 years!</h2>
          <div class="btns">
            <a href="#menu" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
-           <a href="#book-a-table" class="btn-book animated fadeInUp scrollto">Book a Table</a>
+           <a href="#book-a-table" data-toggle="modal" data-target="#exampleModalLong" class="btn-book animated fadeInUp scrollto">Book an Order</a>
          </div>
        </div>
        <div class="col-lg-4 d-flex align-items-center justify-content-center" data-aos="zoom-in" data-aos-delay="200">

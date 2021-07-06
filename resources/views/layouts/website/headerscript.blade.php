@@ -23,6 +23,12 @@
 <link href="{{asset('website-assets/assets/vendor/aos/aos.css') }}" rel="stylesheet">
 <!-- Template Main CSS File -->
 <link href="{{asset('website-assets/assets/css/style.css') }}" rel="stylesheet">
+    <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+        crossorigin="anonymous"
+    />
 <!-- =======================================================
 * Template Name: Restaurantly - v1.2.1
 * Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/

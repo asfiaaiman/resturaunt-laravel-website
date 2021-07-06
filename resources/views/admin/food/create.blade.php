@@ -147,7 +147,8 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-sm-12">
+            <div class="offset-md-2 col-md-8 col-sm-12" style="    background-color: goldenrod;">
+                <h3 class="text-center my-5">Create New Food Item</h3>
                <form action="{{route('foods.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group">

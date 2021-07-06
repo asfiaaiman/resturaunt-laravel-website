@@ -3,10 +3,10 @@
       Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
   -->
     <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="{{route('home')}}" class="simple-text logo-mini">
 
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="{{route('home')}}" class="simple-text logo-normal">
             EAT IT
         </a>
     </div>
@@ -20,14 +20,20 @@
             </li>
             <li>
                 <a href="{{route('foodtypes')}}">
-                    <i class="now-ui-icons education_atom"></i>
+                    <i class=" fas fa-pepper-hot"></i>
                     <p>Food Categories</p>
                 </a>
             </li>
             <li>
                 <a href="{{route('foods')}}">
-                    <i class="now-ui-icons location_map-big"></i>
+                    <i class="fas fa-cheese"></i>
                     <p>Foods</p>
+                </a>
+            </li>
+            <li>
+                <a href="{{route('messages')}}">
+                    <i class="fas fa-envelope"></i>
+                    <p>Messages</p>
                 </a>
             </li>
             <li>

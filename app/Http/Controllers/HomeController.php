@@ -9,15 +9,17 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $foodtypes = Foodtype::with('foods')->where('status', '1')->get();
         $foods = FoodDetail::with('foodtype')->where('status', '1')->get();
         $specials = FoodDetail::with('foodtype')
-                   ->where('status', '1')->get();
+            ->where('status', '1')->get();
         return view('website.index')->with(['foodtypes' => $foodtypes, 'foods' => $foods, 'specials' => $specials]);
     }
 
-    public function messages_store(Request $request){
+    public function messages_store(Request $request)
+    {
 
         $this->validate(request(), [
             'name' => 'required',
@@ -27,7 +29,7 @@ class HomeController extends Controller
         ]);
 
 
-        $contact   =   new Message();
+        $contact = new Message();
         $contact->name = $request->name;
         $contact->email = $request->email;
         $contact->subject = $request->subject;
@@ -36,5 +38,11 @@ class HomeController extends Controller
         $contact->save();
 
         return redirect('/home')->with('success', 'Message  has been sent successfully.');
+    }
+
+    public function detailedMenu()
+    {
+        $foodtypes = Foodtype::with('foods')->where('status', '1')->get();
+        return view('website.detailedMenu')->with('foodtypes', $foodtypes);
     }
 }
