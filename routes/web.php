@@ -20,14 +20,16 @@ use App\Http\Controllers\ClientController;
 */
 
 
-
+Route::get('/', [HomeController::class, 'dashboard'])->name('dashboard');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::post('/home', [HomeController::class, 'messages_store'])->name('home.store');
 Route::get('/detailedMenu', [HomeController::class, 'detailedMenu'])->name('detailedMenu');
 
 
-Route::get('/', function () {
-    return view('layouts.admin.main');
+Route::prefix('orders')->group(function () {
+    Route::get('/', [OrderController::class, 'index'])->name('orders');
+    Route::get('/show/{id}', [OrderController::class, 'show'])->name('orders.show');
+
 });
 
 Route::prefix('foodtypes')->group(function () {
@@ -64,14 +66,6 @@ Route::prefix('messages')->group(function () {
 
 Route::prefix('orders')->group(function () {
     Route::get('/', [OrderController::class, 'index'])->name('orders');
-//    Route::get('/show/{id}', [FoodDetailController::class, 'show'])->name('foods.show');
-//    Route::get('create', [FoodDetailController::class, 'create'])->name('foods.create');
-//    Route::post('/store', [FoodDetailController::class, 'store'])->name('foods.store');
-//    Route::get('/{id}/edit', [FoodDetailController::class, 'edit'])->name('foods.edit');
-//    Route::patch('{id}', [FoodDetailController::class, 'update'])->name('foods.update');
-//    Route::get('{id}/delete', [FoodDetailController::class, 'destroy'])->name('foods.destroy');
-//    Route::post('/storeStatus', [FoodDetailController::class, 'storeStatus'])->name('foods.storeStatus');
-
 });
 
 Route::prefix('clients')->group(function () {
@@ -80,7 +74,7 @@ Route::prefix('clients')->group(function () {
     Route::get('/signin', [ClientController::class, 'signin'])->name('clients.signin')->middleware('guest');
     Route::post('/sign_in', [ClientController::class, 'storeClients'])->name('signin')->middleware('guest');
     Route::get('/profile', [ClientController::class, 'profile'])->name('clients.profile')->middleware('auth');
-    Route::get('/logout',[ClientController::class, 'logout'])->name('logout')->middleware('auth');;
+    Route::get('/logout',[ClientController::class, 'logout'])->name('logout')->middleware('auth');
 });
 
 

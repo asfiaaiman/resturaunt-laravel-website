@@ -5882,6 +5882,10 @@ Created using IcoMoon - icomoon.io
     border-radius: 1px;
     background: #FFFFFF;
   }
+  .dashboard-icon{
+    font-size: 40px;
+    margin: 30px;
+  }
 
   .navbar-toggler-bar+.navbar-toggler-bar {
     margin-top: 7px;

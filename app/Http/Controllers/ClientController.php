@@ -6,6 +6,7 @@ use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Input;
 
 class ClientController extends Controller
 {
@@ -37,24 +38,24 @@ class ClientController extends Controller
     }
     public function storeClients(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'email' => 'required',
-            'password' => 'required'
-        ]);
-        $password = \Hash::make($request['password']);
-        $credentials = [
-            'email' => $request->email,
-            'password' => $password,
-        ];
-
-        if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            dd("Iam if");
+            'password' => 'required',
+        ]); 
+         $password = \Hash::make($request['password']);
+        $credentials = $request->only('email', 'password'); 
+        if (auth()->attempt($credentials)) {
+            dd("I am in if");
         }
 
         else{
-            dd("Iam else");
+            return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
         }
+       
+
+        
 
     }
 

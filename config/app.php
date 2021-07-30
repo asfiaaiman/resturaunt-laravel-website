@@ -162,6 +162,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
+
 
         /*
          * Package Service Providers...
@@ -229,6 +231,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
+        'Input' => Illuminate\Support\Facades\Input::class,
 
     ],
 

@@ -37,9 +37,9 @@
                 </a>
             </li>
             <li>
-                <a href="./notifications.html">
-                    <i class="now-ui-icons ui-1_bell-53"></i>
-                    <p>Notifications</p>
+                <a href="{{route('orders')}}">
+                    <i class="fas fa-balance-scale"></i>
+                    <p>Orders</p>
                 </a>
             </li>
             <li>
