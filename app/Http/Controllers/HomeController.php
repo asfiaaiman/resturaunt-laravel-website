@@ -8,6 +8,9 @@ use App\Models\Event;
 use App\Models\Message;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Notifications\NewContactMessageNotification;
+use Illuminate\Support\Facades\Notification;
 use DB;
 
 class HomeController extends Controller
@@ -41,7 +44,7 @@ class HomeController extends Controller
 
         $this->validate(request(), [
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'subject' => 'required',
             'message' => 'required'
         ]);
@@ -55,7 +58,18 @@ class HomeController extends Controller
 
         $contact->save();
 
-        return redirect('/home')->with('success', 'Message  has been sent successfully.');
+        $admins = User::all();
+        if ($admins->isNotEmpty()) {
+            Notification::send($admins, new NewContactMessageNotification($contact));
+        }
+
+        if ($request->ajax()) {
+            return response()->json([
+                'message' => 'Message has been sent successfully.',
+            ]);
+        }
+
+        return redirect()->route('home')->with('success', 'Message has been sent successfully.');
     }
 
     public function detailedMenu()

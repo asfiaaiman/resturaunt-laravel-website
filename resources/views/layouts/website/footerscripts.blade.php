@@ -75,6 +75,20 @@
         padding: 8px 12px;
         font-size: 14px;
     }
+
+    .contact-success {
+        color: #fff;
+        background: #28a745;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .contact-error {
+        color: #fff;
+        background: #dc3545;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
 </style>
 
 @livewireScripts
