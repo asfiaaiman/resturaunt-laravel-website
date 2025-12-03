@@ -1,18 +1,35 @@
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top">
   <div class="container d-flex align-items-center">
-    <!-- <h1 class="logo mr-auto"><a href="index.html">Restaurantly</a></h1> -->
-    <!-- Uncomment below if you prefer to use an image logo -->
-    <a href="/home" class="logo mr-auto"><img src="{{asset('website-assets/assets/img/logo.png') }}" alt="" class="img-fluid"></a>
+    @php
+        $onHome = request()->routeIs('home');
+    @endphp
+    <a href="{{ route('home') }}" class="logo mr-auto">
+        <img src="{{ asset('website-assets/assets/img/logo.png') }}" alt="" class="img-fluid">
+    </a>
     <nav class="nav-menu d-none d-lg-block">
       <ul>
-        <li class="active"><a href="/home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="/detailedMenu">Menu</a></li>
-        <li><a href="#specials">Specials</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#contact">Contact</a></li>
-          <li class="book-a-table text-center"><a href="{{route('detailedMenu')}}" >Book an Order</a></li>
+        <li class="{{ $onHome ? 'active' : '' }}">
+            <a href="{{ route('home') }}">Home</a>
+        </li>
+        <li>
+            <a href="{{ $onHome ? '#about' : route('home') . '#about' }}">About</a>
+        </li>
+        <li>
+            <a href="{{ $onHome ? '#menu' : route('detailedMenu') }}">Menu</a>
+        </li>
+        <li>
+            <a href="{{ $onHome ? '#specials' : route('home') . '#specials' }}">Specials</a>
+        </li>
+        <li>
+            <a href="{{ $onHome ? '#events' : route('home') . '#events' }}">Events</a>
+        </li>
+        <li>
+            <a href="{{ $onHome ? '#contact' : route('home') . '#contact' }}">Contact</a>
+        </li>
+          <li class="book-a-table text-center">
+              <a href="{{ $onHome ? '#book-a-table' : route('detailedMenu') }}">Book an Order</a>
+          </li>
         <li><a href=""><i class="icofont-shopping-cart"></i></a></li>
           <li class="dropdown">
               <a class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
