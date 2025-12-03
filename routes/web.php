@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     HomeController,
     ClientController,
+    EventBookingController,
 };
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ use App\Http\Controllers\{
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/home', [HomeController::class, 'messages_store'])->name('home.store');
 Route::get('/detailedMenu', [HomeController::class, 'detailedMenu'])->name('detailedMenu');
+Route::post('/events/book', [EventBookingController::class, 'store'])->name('events.book');
 
 Route::get('/locale/{locale}', function (string $locale) {
     $available = config('app.available_locales', []);

@@ -25,7 +25,7 @@
             @forelse($foodtype->foods as $food)
 
             <div class="col-lg-6 menu-item filter-{{ $foodtype->name }}">
-                <img src="{{asset('storage/foods/images/'.$food->image)}}" class="menu-img" alt="">
+                <img src="{{ asset($food->image) }}" class="menu-img" alt="{{ $food->name }}">
                 <div class="menu-content">
                     <a href="#">{{ $food->name }}</a><span>${{ $food->price }}</span>
                 </div>

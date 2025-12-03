@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Database\Seeders\FoodtypeSeeder;
+use Database\Seeders\FoodDetailSeeder;
+use Database\Seeders\EventSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +16,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([
+            FoodtypeSeeder::class,
+            FoodDetailSeeder::class,
+            EventSeeder::class,
+        ]);
     }
 }

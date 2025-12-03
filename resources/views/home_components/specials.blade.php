@@ -29,7 +29,7 @@
                                 
                             </div>
                             <div class="col-lg-4 text-center order-1 order-lg-2">
-                                <img src="assets/img/specials-1.png" alt="" class="img-fluid">
+                                <img src="{{ asset($food->image) }}" alt="{{ $food->name }}" class="img-fluid">
                             </div>
                         </div>
                         @empty

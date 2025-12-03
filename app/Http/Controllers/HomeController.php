@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\FoodDetail;
 use App\Models\Foodtype;
+use App\Models\Event;
 use App\Models\Message;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -17,15 +18,21 @@ class HomeController extends Controller
         $foods = FoodDetail::with('foodtype')->where('status', '1')->get();
         $specials = FoodDetail::with('foodtype')
             ->where('status', '1')->get();
-        return view('website.index')->with(['foodtypes' => $foodtypes, 'foods' => $foods, 'specials' => $specials]);
+        $events = Event::where('status', '1')->get();
+        return view('website.index')->with([
+            'foodtypes' => $foodtypes,
+            'foods' => $foods,
+            'specials' => $specials,
+            'events' => $events,
+        ]);
     }
 
     public function dashboard() {
 
         $order =  Order::select(\DB::raw("COUNT(*) as count"))
-               ->whereMonth('created_at', '=', date('m'))->count();  
+               ->whereMonth('created_at', '=', date('m'))->count();
         $message =  Message::select(\DB::raw("COUNT(*) as count"))
-               ->whereMonth('created_at', '=', date('m'))->count(); 
+               ->whereMonth('created_at', '=', date('m'))->count();
             return view('admin.dashboard')->with(['message' => $message, 'order' => $order]);
     }
 

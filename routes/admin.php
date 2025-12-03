@@ -8,6 +8,7 @@ use App\Http\Controllers\{
     MessageController,
     OrderController,
 };
+use App\Http\Controllers\Admin\EventBookingAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,11 @@ Route::prefix('messages')->group(function () {
     Route::get('/', [MessageController::class, 'index'])->name('messages');
     Route::get('/show/{id}', [MessageController::class, 'show'])->name('messages.show');
     Route::post('/storeStatus', [MessageController::class, 'storeStatus'])->name('messages.storeStatus');
+});
+
+Route::prefix('event-bookings')->group(function () {
+    Route::get('/', [EventBookingAdminController::class, 'index'])->name('event-bookings.index');
+    Route::post('/{booking}/status', [EventBookingAdminController::class, 'updateStatus'])->name('event-bookings.updateStatus');
 });
 
 

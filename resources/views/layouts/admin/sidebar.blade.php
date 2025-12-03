@@ -43,6 +43,12 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('event-bookings.index') }}">
+                    <i class="fas fa-calendar-check"></i>
+                    <p>Event Bookings</p>
+                </a>
+            </li>
+            <li>
                 <a href="./user.html">
                     <i class="now-ui-icons users_single-02"></i>
                     <p>User Profile</p>
