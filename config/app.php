@@ -118,6 +118,18 @@ return [
 
     'restaurant_hours' => env('RESTAURANT_HOURS', 'Mon-Sat: 11:00 AM - 23:00 PM'),
 
+    'restaurant_email' => env('RESTAURANT_EMAIL', 'info@example.com'),
+
+    'restaurant_address' => env('RESTAURANT_ADDRESS', 'Islamabad, Pakistan'),
+
+    'restaurant_facebook' => env('RESTAURANT_FACEBOOK', '#'),
+
+    'restaurant_instagram' => env('RESTAURANT_INSTAGRAM', '#'),
+
+    'restaurant_twitter' => env('RESTAURANT_TWITTER', '#'),
+
+    'restaurant_linkedin' => env('RESTAURANT_LINKEDIN', '#'),
+
     'available_locales' => ['en', 'de'],
 
     /*
