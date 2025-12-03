@@ -10,25 +10,25 @@
     <nav class="nav-menu d-none d-lg-block">
       <ul>
         <li class="{{ $onHome ? 'active' : '' }}">
-            <a href="{{ route('home') }}">Home</a>
+            <a href="{{ route('home') }}">{{ __('website.home') }}</a>
         </li>
         <li>
-            <a href="{{ $onHome ? '#about' : route('home') . '#about' }}">About</a>
+            <a href="{{ $onHome ? '#about' : route('home') . '#about' }}">{{ __('website.about') }}</a>
         </li>
         <li>
-            <a href="{{ $onHome ? '#menu' : route('detailedMenu') }}">Menu</a>
+            <a href="{{ $onHome ? '#menu' : route('detailedMenu') }}">{{ __('website.menu') }}</a>
         </li>
         <li>
-            <a href="{{ $onHome ? '#specials' : route('home') . '#specials' }}">Specials</a>
+            <a href="{{ $onHome ? '#specials' : route('home') . '#specials' }}">{{ __('website.specials') }}</a>
         </li>
         <li>
-            <a href="{{ $onHome ? '#events' : route('home') . '#events' }}">Events</a>
+            <a href="{{ $onHome ? '#events' : route('home') . '#events' }}">{{ __('website.events') }}</a>
         </li>
         <li>
-            <a href="{{ $onHome ? '#contact' : route('home') . '#contact' }}">Contact</a>
+            <a href="{{ $onHome ? '#contact' : route('home') . '#contact' }}">{{ __('website.contact') }}</a>
         </li>
           <li class="book-a-table text-center">
-              <a href="{{ $onHome ? '#book-a-table' : route('detailedMenu') }}">Book an Order</a>
+              <a href="{{ $onHome ? '#book-a-table' : route('detailedMenu') }}">{{ __('website.book_order') }}</a>
           </li>
         <li><a href=""><i class="icofont-shopping-cart"></i></a></li>
           <li class="dropdown">

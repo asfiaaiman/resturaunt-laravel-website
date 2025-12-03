@@ -21,6 +21,18 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/home', [HomeController::class, 'messages_store'])->name('home.store');
 Route::get('/detailedMenu', [HomeController::class, 'detailedMenu'])->name('detailedMenu');
 
+Route::get('/locale/{locale}', function (string $locale) {
+    $available = config('app.available_locales', []);
+
+    if (! in_array($locale, $available, true)) {
+        abort(404);
+    }
+
+    session(['locale' => $locale]);
+
+    return back();
+})->name('locale.switch');
+
 Route::prefix('clients')->group(function () {
     Route::get('/signup', [ClientController::class, 'signup'])->name('clients.signup')->middleware('guest');
     Route::post('store', [ClientController::class, 'store'])->name('clients.store')->middleware('guest');
